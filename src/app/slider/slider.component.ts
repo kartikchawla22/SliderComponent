@@ -9,7 +9,7 @@ export class SliderComponent implements OnInit {
   constructor() {
     this.items.length = 22;
    }
-step=2;
+step = 1;
 items = [];
   increase(slid, slidval) {
     if (slid.value >= 90) {
@@ -20,23 +20,20 @@ items = [];
     }
     slid.value++;
     slidval.value = slid.value;
-    // console.log(this.items.length);
+    
   }
 
 
-  decrease(slid, slidval) {
-   if (slid.value >= 90) {
-      this.step =5;
+  d(slid, slidval){
+      if (slid.value >= 90) {
+      this.step = 5;
     } 
     else
-    {this.step = 2;
+    {this.step = 1;
     }
- 
-  slid.value--;
-  // console.log(slid.value);
+    slid.value-=2;
     slidval.value = slid.value;
   }
-
 
 
   ngOnInit() {
