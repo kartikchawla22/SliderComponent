@@ -1,6 +1,9 @@
 <form>
   <button (click)="increase(slid, slidval)">+</button>
-  <input for="slidervalue" type="range" min="1" max="100" oninput="slidervalue.value = Slider.value" name="Slider" #slid>
+  <input list= scale for="slidervalue" type="range" min="1" max="100" step = {{step}} oninput="slidervalue.value = Slider.value" name="Slider" #slid>
+  <datalist id = scale>
+<option *ngFor="let item of items; let i=index">{{i*5}}</option>
+  </datalist>
   <button (click)="decrease(slid, slidval)">-</button>
-  <input type="text" for="Slider" oninput="Slider.value = slidervalue.value" name="slidervalue" #slidval>
+  <input type="text" for="Slider" max = "100" oninput="Slider.value = slidervalue.value" name="slidervalue" #slidval>
 </form>
