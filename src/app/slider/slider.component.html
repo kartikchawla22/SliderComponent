@@ -1,0 +1,6 @@
+<form>
+  <button (click)="increase(slid, slidval)">+</button>
+  <input for="slidervalue" type="range" min="1" max="100" oninput="slidervalue.value = Slider.value" name="Slider" #slid>
+  <button (click)="decrease(slid, slidval)">-</button>
+  <input type="text" for="Slider" oninput="Slider.value = slidervalue.value" name="slidervalue" #slidval>
+</form>
