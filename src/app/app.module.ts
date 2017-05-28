@@ -16,11 +16,16 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { AboutComponent } from './about/about.component';
 import { TermsComponent } from './terms/terms.component';
 import { FooterComponent } from './footer/footer.component';
+import { SeasonsComponent } from './seasons/seasons.component';
+import { ComicsComponent } from './comics/comics.component';
 
 const routes = [
   { path: "admin", component: AdminComponent },
   { path: 'login', component: LoginComponent },
-  { path: "", component: MainbodyComponent },
+  {
+    path: "", component: MainbodyComponent,
+
+  },
   {
     path: 'about',
     component: AboutComponent
@@ -37,7 +42,21 @@ const routes = [
   }
 
 
-
+]
+const child = [
+  {
+    path: "", component: MainbodyComponent,
+    children: [{
+      path: '**',
+      component: SeasonsComponent,
+      children: [
+        {
+          path: '**',
+          component: ComicsComponent
+        },
+      ]
+    }]
+  }
 ]
 
 @NgModule({
@@ -52,14 +71,17 @@ const routes = [
     ContactsComponent,
     AboutComponent,
     TermsComponent,
-    FooterComponent
+    FooterComponent,
+    SeasonsComponent,
+    ComicsComponent
   ],
 
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    RouterModule.forChild(child)
   ],
   providers: [CheckLogin],
   bootstrap: [AppComponent]
