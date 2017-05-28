@@ -1,0 +1,77 @@
+.testimonial-group>.row {
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.testimonial-group>.row>.container {
+  display: inline-block;
+  float: none;
+}
+
+
+
+/* Decorations */
+
+/*.row-fluid{
+     white-space: nowrap;
+     overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+.row-fluid>.col-lg-3{
+     display: inline-block;
+     float: none;
+}
+
+
+.list-inline {
+  white-space:nowrap;
+}
+.DocumentList
+{
+    overflow-x:scroll;
+    overflow-y:hidden;
+    height:200px;
+    width:100%;
+    padding: 0 15px;
+}
+.DocumentItem
+{
+    border:1px solid black;
+    padding:0;
+    height:200px;
+}*/
+.container {
+  color: #fff;
+  font-size: 48px;
+  padding-bottom: 70px;
+  padding-top: 70px;
+  opacity: 0.5
+}
+
+.container:nth-child(3n+1) {
+  background: #484848;
+}
+
+.container:nth-child(3n+2) {
+  background: #606060;
+}
+
+.container:nth-child(3n+3) {
+  background: gray;
+}
+
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+  opacity: 0.5
+}

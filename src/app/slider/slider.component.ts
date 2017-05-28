@@ -7,31 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SliderComponent implements OnInit {
   constructor() {
-    this.items.length = 22;
+    // this.items.length = 20;
    }
-step = 1;
 items = [];
   increase(slid, slidval) {
     if (slid.value >= 90) {
-      this.step = 5;
+      slid.value+=5;
     } 
     else
-    {this.step = 2;
+     { 
+      slid.value+=2;
     }
-    slid.value++;
     slidval.value = slid.value;
-    
   }
 
 
   d(slid, slidval){
-      if (slid.value >= 90) {
-      this.step = 5;
+      if (slid.value >90) {
+      slid.value-=5;
     } 
     else
-    {this.step = 1;
+     {
+      slid.value-=2;
     }
-    slid.value-=2;
     slidval.value = slid.value;
   }
 
