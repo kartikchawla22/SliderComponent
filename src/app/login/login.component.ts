@@ -20,6 +20,7 @@ onformsubmit(){
     console.log(key);
   }
   else{
+    alert('Wrong username/password');
     this._router.navigate(['/login']);
     this.data.username = "";
     this.data.password = "";

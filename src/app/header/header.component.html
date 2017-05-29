@@ -12,16 +12,16 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li class="active">
-          <a href="#" [style.color] = "'black'">HOME</a>
+          <a routerLinkActive='active' routerLink='/' [style.color] = "'black'">HOME</a>
         </li>
         <li><a href="#">about</a></li>
-        <li class="dropdown">
+        <li class="dropdown"  *ngIf = "role == SA">
     <a class="dropdown-toggle" data-toggle="dropdown" href = "#">Dashbord
     <span class="caret"></span></a>
         <!--<li class="dropdown"><a href="#" class="dropdown-toggle">something <b class="caret"></b></a>-->
           <ul class="dropdown-menu">
             <li class="dropdown-header">admin</li>
-            <li *ngIf = "role==SA">
+            <li>
               <a routerLinkActive='active' routerLink='/admin'>Update admins and users</a>
             <li>
               <a href="#">admin2</a></li>
