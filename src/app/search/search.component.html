@@ -3,10 +3,10 @@
 </div>
 <div class="container">
   <div class="col-sm-4">
-    <input [style.opacity] = "0.5" type="text" class="form-control input-sm" placeholder="Search" name="search" [(ngModel)]="SearchItem">
+    <input [style.opacity] = "0.5" type="text" class="form-control input-sm" placeholder="Search" name="search" #Search [(ngModel)]="SearchItem" required>
   </div>
-  <a class="btn btn-danger" routerLinkActive = "active" [routerLink] = "['/searchresults', SearchItem]" [style.opacity] = "0.5" >
+  <button class="btn btn-danger" routerLinkActive = "active" [routerLink] = "['/searchresults', SearchItem]" [style.opacity] = "0.5" [disabled] = "!Search.valid" >
         <span class="glyphicon glyphicon-search"></span>Search
-  </a>
+  </button>
 </div>
 <br><br>
