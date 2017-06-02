@@ -10,6 +10,11 @@ import { SelectModule } from 'angular2-select';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+    showupdateform = 0;
+    updateformcounter = 0;
+    userid: any;
+    subscribeUser: any;
+    showdelform: number;
   user = [];
   showform = 0;
   counter = 0;
@@ -18,21 +23,38 @@ export class AdminComponent implements OnInit {
     password : "",
     role :  ""
   };
+
+  updateuserform = {
+    email : "",
+    password : "",
+    role :  "",
+    id : 0
+  };
+  checkpass = {
+    password: ""
+  }
+  delformcounter = 0;
   result;
-  deluser = {id  : 0};
+  deluserid : 0;
   constructor(public Loginstatus: CheckLogin, public users: RestfullService) {
 
   }
-  del(id) {
-    this.deluser.id = id;
-    console.log(this.deluser);
-    this.users.deleteuser(this.deluser).subscribe(res => {console.log("deleted")});
-
+  del() {
+    // this.deluser.id = id;
+if(this.checkpass.password == this.Loginstatus.Passcheck()){
+    this.users.deleteuser(this.deluserid).subscribe(res => {console.log("deleted"); this.getusers(); this.showdelform = 0});
+}
+else{
+  alert('wrong password');
+  this.checkpass.password = "";
+this.showdelform = 1;
+}
   }
 
   addUser() {
     if (this.counter % 2 == 0) {
       this.showform = 1;
+      this.showdelform = 0;
     }
     else
       this.showform = 0;
@@ -40,13 +62,31 @@ export class AdminComponent implements OnInit {
 
     this.counter++;
   }
+
+
+delformshow(id) {
+  this.deluserid = id;
+    if (this.delformcounter % 2 == 0) {
+      this.showdelform = 1;
+      this.showform = 0;
+    }
+    else
+      this.showdelform = 0;
+
+
+    this.delformcounter++;
+  }
+
   getusers(){
-    this.users.getusers().subscribe(res => { this.user = res });
+    if(this.subscribeUser != null){
+      this.subscribeUser.unsubscribe();
+    }
+    this.subscribeUser = this.users.getusers().subscribe(res => { this.user = res });
   }
   addnewuser(dd) {
     console.log(dd);
     this.adduserform.role = dd;
-    this.users.postusers(this.adduserform).subscribe(res=>{this.result = res; this.getusers();});
+    this.users.postusers(this.adduserform).subscribe(res=>{this.result = res; this.getusers(); this.showform = 0;});
     // this.users.getusers().subscribe(res => { this.user = res });
     // console.log(form.valid , " this is dd");
     
@@ -56,4 +96,30 @@ export class AdminComponent implements OnInit {
     this.getusers();
   }
 
+
+
+update(id)
+{
+  this.userid = id;
+    if (this.updateformcounter % 2 == 0) {
+      this.showupdateform = 1;
+      this.showform = 0;
+    }
+    else
+      this.showdelform = 0;
+
+
+    this.delformcounter++;
+  }
+
+updateuser(dd){
+
+    this.updateuserform.role = dd;
+    this.updateuserform = this.userid;
+    this.users.updateuser(this.updateuserform).subscribe(res=>{this.result = res; this.getusers(); this.showform = 0;});
 }
+}
+
+
+
+

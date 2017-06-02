@@ -1,3 +1,52 @@
-<p>
-  updatecomics works!
-</p>
+<div class="table-responsive">
+  <table class="table table-condensed" [style.color]="'silver'">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>comics id</th>
+        <th>Season Id</th>
+        <th>Series Id</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of arr">
+        <td>{{item.name}}</td>
+        <td>{{item.comic_id}}</td>
+        <td>{{item.season_id}}</td>
+        <td>{{item.series_id}}</td>
+        <td><button class="btn btn-info" (click)="update(item.comic_id)">Update</button></td>
+        <td><button class="btn btn-danger" (click)="delformshow(item.comic_id)">Delete</button></td>
+      </tr>
+      <button (click)="addcomics()" class="btn btn-danger">Add comic</button>
+    </tbody>
+  </table>
+</div>
+<div class="container" *ngIf="showform == '1'">
+  <form #AddseasonsForm (ngSubmit)="addnewcomics(DropDown.value, DropDown2.value)">
+    <div class="form-group">
+      <label>comic name:</label>
+      <input type="text" class="form-control" name="name" #name required [(ngModel)]="addcomic.name">
+    </div>
+    <select #DropDown>
+    <option *ngFor="let item of serieslist; let i=index" value="{{item.series_id}}" required>{{item.name}}</option>
+    </select>
+    <select #DropDown2>
+    <option *ngFor="let item of seasonlist; let i=index" value="{{item.season_id}}" required>{{item.name}}</option>
+    </select>
+    <button class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+
+
+<div class="container" *ngIf="showdelform == '1'">
+  <form #AdduserForm (ngSubmit)="del()">
+    <div class="form-group">
+      <label>password</label>
+      <input type="password" class="form-control" name="password" #pas required [(ngModel)]="checkpass.password">
+    </div>
+    <button class="btn btn-danger">delete</button>
+  </form>
+</div>

@@ -15,7 +15,7 @@
         <td>{{item.season_id}}</td>
         <td>{{item.series_id}}</td>
         <td><button class="btn btn-info" (click)="update(item.season_id)">Update</button></td>
-        <td><button class="btn btn-danger" (click)="del(item.season_id)">Delete</button></td>
+        <td><button class="btn btn-danger" (click)="delformshow(item.season_id)">Delete</button></td>
       </tr>
       <button (click)="addseasons()" class="btn btn-danger" >Add season</button>
     </tbody>
@@ -28,8 +28,20 @@
       <input type="text" class="form-control" name="name" #name required [(ngModel)]="addseason.name" >
     </div>
     <select #DropDown>
-    <option *ngFor="let item of serieslist; let i=index" value="{{serieslist.series_id}}" required>{{item.name}}</option>
+    <option *ngFor="let item of serieslist; let i=index" value="{{item.series_id}}" required>{{item.name}}</option>
     </select>
     <button class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+
+
+<div class="container" *ngIf = "showdelform == '1'" >
+  <form #AdduserForm (ngSubmit) = "del()"  >
+    <div class="form-group">
+      <label>password</label>
+      <input type="password" class="form-control" name="password" #pas required  [(ngModel)]="checkpass.password" >
+    </div>
+    <button class="btn btn-danger"  >delete</button>
   </form>
 </div>

@@ -17,7 +17,7 @@
         <td>{{item.role}}</td>
         <td>{{item.id}}</td>
         <td><button class="btn btn-info" (click)="update(item.id)">Update</button></td>
-        <td><button class="btn btn-danger" (click)="del(item.id)">Delete</button></td>
+        <td><button class="btn btn-danger" (click)="delformshow(item.id)">Delete</button></td>
       </tr>
       <button (click)="addUser()" class="btn btn-danger" >Add User</button>
     </tbody>
@@ -31,7 +31,7 @@
     </div>
     <div class="form-group">
       <label>password</label>
-      <input type="text" class="form-control" name="password" #pas required  [(ngModel)]="adduserform.password" >
+      <input type="password" class="form-control" name="password" #pas required  [(ngModel)]="adduserform.password" >
     </div>
      <select #DropDown class="btn btn-primary dropdown-toggle" >
        <option value="" selected disabled>Please select</option>
@@ -39,5 +39,53 @@
     <option value="U" >user</option>
     </select>
     <button class="btn btn-success"  >Submit</button>
+  </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="container" *ngIf = "showupdateform == '1'" >
+  <form #AdduserForm (ngSubmit) = "updateuser(DropDown.value)"  >
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" class="form-control" name="email" #email required [(ngModel)]="updateuserform.email" >
+    </div>
+    <div class="form-group">
+      <label>password</label>
+      <input type="password" class="form-control" name="password" #pas required  [(ngModel)]="updateuserform.password" >
+    </div>
+     <select #DropDown class="btn btn-primary dropdown-toggle" >
+       <option value="" selected disabled>Please select</option>
+    <option value="A" >Admin</option>
+    <option value="U" >user</option>
+    </select>
+    <button class="btn btn-success"  >Submit</button>
+  </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="container" *ngIf = "showdelform == '1'" >
+  <form #AdduserForm (ngSubmit) = "del()"  >
+    <div class="form-group">
+      <label>password</label>
+      <input type="password" class="form-control" name="password" #pas required  [(ngModel)]="checkpass.password" >
+    </div>
+    <button class="btn btn-danger"  >delete</button>
   </form>
 </div>

@@ -48,17 +48,19 @@ return this.httpService.get(this.Url.URLS.getcomicsbyid + id).map(data=>data = d
   }
 
 deleteuser(id) : Observable<any>{
-return this.httpService.delete(this.Url.URLS.getusers, id).map((res : Response) => res.json());
+  console.log(id , "id del");
+return this.httpService.delete(this.Url.URLS.getusers + '/' +  id).map((res : Response) => res.json());
 }
 
 deleteseason(id) : Observable<any>{
-return this.httpService.delete(this.Url.URLS.getseason, id).map((res : Response) => res.json());
+return this.httpService.delete(this.Url.URLS.getseason + '/' +  id).map((res : Response) => res.json());
 }
 deleteseries(id) : Observable<any>{
-return this.httpService.delete(this.Url.URLS.getseries, id).map((res : Response) => res.json());
+  console.log(id , "serires id")
+return this.httpService.delete(this.Url.URLS.getseries + '/' +  id).map((res : Response) => res.json());
 }
 deletecomics(id) : Observable<any>{
-return this.httpService.delete(this.Url.URLS.getcomics, id).map((res : Response) => res.json());
+return this.httpService.delete(this.Url.URLS.getcomics + '/' +  id).map((res : Response) => res.json());
 }
 
 
@@ -89,5 +91,29 @@ postseason(form) : Observable<any>{
   return this.httpService.post(this.Url.URLS.getseason, form, headers).map((res:Response) => res.json());
 }
 
+
+updateseason(form) : Observable<any>{
+   let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+  return this.httpService.put(this.Url.URLS.getseason, form, headers).map((res:Response) => res.json());
+}
+
+updateuser(form) : Observable<any>{
+   let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+  return this.httpService.put(this.Url.URLS.getusers, form, headers).map((res:Response) => res.json());
+}
+
+updateseries(form) : Observable<any>{
+   let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+  return this.httpService.put(this.Url.URLS.getseries, form, headers).map((res:Response) => res.json());
+}
+
+updatecomics(form) : Observable<any>{
+   let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+  return this.httpService.put(this.Url.URLS.getcomics, form, headers).map((res:Response) => res.json());
+}
 
 }

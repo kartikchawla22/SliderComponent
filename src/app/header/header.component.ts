@@ -31,6 +31,10 @@ check(x):Observable<any>{
   else
   return Observable.of(false);
 }
+
+
+
+
 checksa(x):Observable<any>{
    var y = this.config.roles.x;
    var z = this.LoginLogout.RoleCheck()

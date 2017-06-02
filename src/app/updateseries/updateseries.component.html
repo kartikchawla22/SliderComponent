@@ -13,7 +13,7 @@
         <td>{{item.name}}</td>
         <td>{{item.series_id}}</td>
         <td><button class="btn btn-info" (click)="update(item.series_id)">Update</button></td>
-        <td><button class="btn btn-danger" (click)="del(item.series_id)">Delete</button></td>
+        <td><button class="btn btn-danger" (click)="delformshow(item.series_id)">Delete</button></td>
       </tr>
       <button (click)="addseries()" class="btn btn-danger" >Add series</button>
     </tbody>
@@ -26,5 +26,16 @@
       <input type="text" class="form-control" name="name" #name required [(ngModel)]="seriesform.name" >
     </div>
     <button class="btn btn-success"  (click) = "addnewseries()" >Submit</button>
+  </form>
+</div>
+
+
+<div class="container" *ngIf = "showdelform == '1'" >
+  <form #AdduserForm (ngSubmit) = "del()"  >
+    <div class="form-group">
+      <label>password</label>
+      <input type="password" class="form-control" name="password" #pas required  [(ngModel)]="checkpass.password" >
+    </div>
+    <button class="btn btn-danger"  >delete</button>
   </form>
 </div>
