@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CheckLogin } from '../cookie';
 import { Router, Route, RouterModule } from '@angular/router'
+
+import { RestfullService } from '../restfull.service';
 // import '../back.jpg';
 @Component({
   selector: 'app-mainbody',
@@ -11,11 +13,17 @@ export class MainbodyComponent implements OnInit {
 role;
 
 
-  constructor( private LoginLogout : CheckLogin, public _route: Router) { }
-arr = [1,2,3,4,5,6,7,8,9,10, 11, 12, 13];
+  constructor( private LoginLogout : CheckLogin, public _route: Router, public series : RestfullService) { }
+arr = [];
 
 
   ngOnInit() {
+this.series.getseries().subscribe(res => {
+      this.arr = res
+    }
+      , errorr => {             // If there is an error it will alert an error.
+        alert(errorr);
+      });
 this.role=this.LoginLogout.RoleCheck();  
 }
 

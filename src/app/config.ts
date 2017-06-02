@@ -21,9 +21,15 @@ export class Configuration {
         getseason: 'http://192.168.15.148:4000/api/v1/seasons',
         getcomics: 'http://192.168.15.148:4000/api/v1/comics',
         search: 'http://192.168.15.148:4000/api/v1/search/',
-        checkusers: 'http://192.168.15.148:4000/api/v1/search/'
+        checkusers: 'http://192.168.15.148:4000/api/v1/Check/',
+        getseasonbyid : 'http://192.168.15.148:4000/api/v1/seasons/',
+        getcomicsbyid : 'http://192.168.15.148:4000/api/v1/comcis/', 
 
 
 
+    }
+
+   public roles = {
+        x: ['SA', 'A', 'U']
     }
 }

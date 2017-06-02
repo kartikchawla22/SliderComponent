@@ -30,7 +30,7 @@ private _router: Router
     
   }
 role ;
-RoleCheck() : Observable<any>{
+RoleCheck() : String{
     var x = document.cookie.split(';');
     var cookievalue;
     for (var i = 0; i < x.length; i++) {
@@ -41,15 +41,13 @@ RoleCheck() : Observable<any>{
     }
 
     if(cookievalue == undefined){
-      this.role = Observable.of("");
-      return this.role;
+      this.role = "";
+      
     }
     else{
     var res = atob(cookievalue).split('??');
       console.log(atob(res[2]));
-      this.role =  Observable.of(atob(res[2]));
-      return this.role;
-      
+      this.role =  atob(res[2]);
 }
-
+return this.role;
   }}

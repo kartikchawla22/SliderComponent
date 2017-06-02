@@ -1,5 +1,43 @@
-<div class="container">
-  <div>
-<button>do somethign</button>
-  </div>
+<div class="table-responsive">
+  <table class="table table-condensed" [style.color]="'silver'">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Password</th>
+        <th>Role</th>
+        <th>Id</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of user">
+        <td>{{item.email}}</td>
+        <td>{{item.password}}</td>
+        <td>{{item.role}}</td>
+        <td>{{item.id}}</td>
+        <td><button class="btn btn-info" (click)="update(item.id)">Update</button></td>
+        <td><button class="btn btn-danger" (click)="del(item.id)">Delete</button></td>
+      </tr>
+      <button (click)="addUser()" class="btn btn-danger" >Add User</button>
+    </tbody>
+  </table>
+</div>
+<div class="container" *ngIf = "showform == '1'" >
+  <form #AdduserForm (ngSubmit) = "addnewuser(DropDown.value)"  >
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" class="form-control" name="email" #email required [(ngModel)]="adduserform.email" >
+    </div>
+    <div class="form-group">
+      <label>password</label>
+      <input type="text" class="form-control" name="password" #pas required  [(ngModel)]="adduserform.password" >
+    </div>
+     <select #DropDown class="btn btn-primary dropdown-toggle" >
+       <option value="" selected disabled>Please select</option>
+    <option value="A" >Admin</option>
+    <option value="U" >user</option>
+    </select>
+    <button class="btn btn-success"  >Submit</button>
+  </form>
 </div>

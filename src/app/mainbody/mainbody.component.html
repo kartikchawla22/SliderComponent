@@ -1,8 +1,8 @@
-<app-search></app-search>
+<!--<app-search></app-search>-->
   <div class="container testimonial-group">
     <div class="row text-center">
       <div *ngFor="let item of arr; let i=index" class="col-xs-4 container">
-<a routerLinkActive = "active" [routerLink] = "['/series', i]">series = {{i}}</a>
+<a routerLinkActive = "active" [routerLink] = "['/series', item.series_id]">{{item.name}}</a>
       </div>
     </div>
 </div>

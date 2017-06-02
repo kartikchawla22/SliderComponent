@@ -1,4 +1,4 @@
-
+import { Router, Route, RouterModule } from '@angular/router'
 import { AppComponent } from './app.component';
 import { SliderComponent } from './slider/slider.component';
 import { HeaderComponent } from './header/header.component';
@@ -14,11 +14,17 @@ import { FooterComponent } from './footer/footer.component';
 import { SeasonsComponent } from './seasons/seasons.component';
 import { ComicsComponent } from './comics/comics.component';
 import { SearchresultComponent } from './searchresult/searchresult.component';
+import { AuthserviceService } from './authservice.service';
+import { UpdateseriesComponent } from './updateseries/updateseries.component';
+import { UpdateseasonsComponent } from './updateseasons/updateseasons.component';
+import { UpdatecomicsComponent } from './updatecomics/updatecomics.component';
+import { AdminauthService  } from './adminauth.service'
 
 export const routes = [
   {
     path: "admin",
-    component: AdminComponent
+    component: AdminComponent,
+    canActivate : [AuthserviceService]
   },
   {
     path: 'login',
@@ -54,7 +60,22 @@ export const routes = [
   {
     path: 'searchresults/:search',
     component: SearchresultComponent
-  }
-
+  },
+  {
+    path : 'updateseries',
+    component : UpdateseriesComponent,
+    canActivate : [AdminauthService]
+    
+  },
+{
+    path : 'updateseasons',
+    component : UpdateseasonsComponent,
+    canActivate : [AdminauthService]
+  },
+  {
+    path : 'updatecomics',
+    component : UpdatecomicsComponent,
+    canActivate : [AdminauthService]
+  },
 
 ]

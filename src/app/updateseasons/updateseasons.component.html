@@ -1,0 +1,35 @@
+<div class="table-responsive">
+  <table class="table table-condensed" [style.color]="'silver'">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Season Id</th>
+        <th>Series Id</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of arr">
+        <td>{{item.name}}</td>
+        <td>{{item.season_id}}</td>
+        <td>{{item.series_id}}</td>
+        <td><button class="btn btn-info" (click)="update(item.season_id)">Update</button></td>
+        <td><button class="btn btn-danger" (click)="del(item.season_id)">Delete</button></td>
+      </tr>
+      <button (click)="addseasons()" class="btn btn-danger" >Add season</button>
+    </tbody>
+  </table>
+</div>
+<div class="container" *ngIf = "showform == '1'" >
+  <form #AddseasonsForm (ngSubmit) = "addnewseasons(DropDown.value)"  >
+    <div class="form-group">
+      <label>season name:</label>
+      <input type="text" class="form-control" name="name" #name required [(ngModel)]="addseason.name" >
+    </div>
+    <select #DropDown>
+    <option *ngFor="let item of serieslist; let i=index" value="{{serieslist.series_id}}" required>{{item.name}}</option>
+    </select>
+    <button class="btn btn-success">Submit</button>
+  </form>
+</div>

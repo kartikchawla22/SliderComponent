@@ -6,9 +6,9 @@
                 <img class="profile-img" src="https://cdn3.iconfinder.com/data/icons/users-line/64/user_person_account_interface_login-512.png"
                     alt="">
                 <form class="form-signin" (ngSubmit) = "onformsubmit()" #Submitform>
-                <input type="text" class="form-control" placeholder="Email" required autofocus [(ngModel)]="data.email" name="email" pattern = EMAIL_REGEXP >
+                <input type="text" class="form-control" placeholder="Email" required autofocus [(ngModel)]="data.email" name="email" >
                 <input type="password" class="form-control" placeholder="Password" required [(ngModel)]="data.password" name="password">
-                <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled] = "!Submitform.valid" >
+                <button class="btn btn-lg btn-primary btn-block" type="submit"  >
                     Sign in</button>
                 </form>
             </div>

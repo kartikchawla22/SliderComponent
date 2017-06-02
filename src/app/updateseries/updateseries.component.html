@@ -1,0 +1,30 @@
+<div class="table-responsive">
+  <table class="table table-condensed" [style.color]="'silver'">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Id</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of arr">
+        <td>{{item.name}}</td>
+        <td>{{item.series_id}}</td>
+        <td><button class="btn btn-info" (click)="update(item.series_id)">Update</button></td>
+        <td><button class="btn btn-danger" (click)="del(item.series_id)">Delete</button></td>
+      </tr>
+      <button (click)="addseries()" class="btn btn-danger" >Add series</button>
+    </tbody>
+  </table>
+</div>
+<div class="container" *ngIf = "showform == '1'" >
+  <form #AddseriesForm>
+    <div class="form-group">
+      <label>Series name:</label>
+      <input type="text" class="form-control" name="name" #name required [(ngModel)]="seriesform.name" >
+    </div>
+    <button class="btn btn-success"  (click) = "addnewseries()" >Submit</button>
+  </form>
+</div>
