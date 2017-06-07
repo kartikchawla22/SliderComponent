@@ -115,8 +115,10 @@ update(id)
 updateuser(dd){
 
     this.updateuserform.role = dd;
-    this.updateuserform = this.userid;
+    this.updateuserform.id = this.userid;
+    console.log(this.updateuserform)
     this.users.updateuser(this.updateuserform).subscribe(res=>{this.result = res; this.getusers(); this.showform = 0;});
+    this.showupdateform = 0;
 }
 }
 

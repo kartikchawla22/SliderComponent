@@ -3,15 +3,9 @@
     max-width: 330px;
     padding: 15px;
     margin: 0 auto;
+    /*background : transparent*/
 }
-.form-signin .form-signin-heading, .form-signin .checkbox
-{
-    margin-bottom: 10px;
-}
-.form-signin .checkbox
-{
-    font-weight: normal;
-}
+
 .form-signin .form-control
 {
     position: relative;
@@ -21,6 +15,7 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    /*background : transparent*/
 }
 .form-signin .form-control:focus
 {
@@ -31,6 +26,7 @@
     margin-bottom: -1px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+    /*fill-opacity: 0.5;*/
 }
 .form-signin input[type="password"]
 {
@@ -42,15 +38,15 @@
 {
     margin-top: 20px;
     padding: 40px 0px 20px 0px;
-    background-color: #f7f7f7;
-    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    background-color: transparent;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.0);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.0);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.0);
 }
 .login-title
 {
-    color: #555;
-    font-size: 18px;
+    color: #edecde;
+    font-size: 28px;
     font-weight: 400;
     display: block;
 }

@@ -4,3 +4,32 @@
   height: 50px;
   display: block;
 }
+
+
+
+
+.navbar.navbar-default {
+  padding: 10px 0;
+  background: transparent;
+  border: none;
+}
+.navbar.navbar-default .navbar-nav > li > a,
+.navbar.navbar-default .navbar-brand {
+  color: white;
+  background-color: transparent;
+  
+}
+.navbar.navbar-default .navbar-collapse {
+  border: black;
+  box-shadow: none;
+  
+}
+
+ .navbar-default .navbar-nav .open .dropdown-menu>li>a, .navbar-default .navbar-nav .open .dropdown-menu {
+    background-color: transparent;
+    color:#ffffff;
+  }
+
+ .dropdown-menu .dropdown-header{
+    color : white;
+  }

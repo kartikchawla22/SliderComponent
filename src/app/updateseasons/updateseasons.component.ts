@@ -8,26 +8,36 @@ import { CheckLogin } from '../cookie';
   styleUrls: ['./updateseasons.component.css']
 })
 export class UpdateseasonsComponent implements OnInit {
-    delseasonid: any; showform = 0;
-counter = 0;
-serieslist = [];
-result;
-addseason = {
-  name :"",
-  series_id : 0
-}
-checkpass = {
-  password  : ""
-}
- showdelform = 0;
-    delformcounter = 0;
-  constructor(public seasons : RestfullService, public check  : CheckLogin) { }
-arr = [];
-ngOnInit() {
-  //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-  //Add 'implements OnInit' to the class.
-  this.getseasons();
-}
+  seasonid: any;
+  updateformcounter = 0;
+  showupdateform = 0;
+  delseasonid: any; 
+  showform = 0;
+  counter = 0;
+  serieslist = [];
+  result;
+  addseason = {
+    name: "",
+    series_id: 0
+  }
+  checkpass = {
+    password: ""
+  }
+  showdelform = 0;
+  delformcounter = 0;
+  updateseasonform = {
+    name: "",
+    season_id: 0,
+    series_id: 0
+  };
+
+  constructor(public seasons: RestfullService, public check: CheckLogin) { }
+  arr = [];
+  ngOnInit() {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.getseasons();
+  }
 
   getseasons() {
     this.seasons.getseasons().subscribe(res => {
@@ -36,7 +46,7 @@ ngOnInit() {
       , errorr => {             // If there is an error it will alert an error.
         alert(errorr);
       });
-      this.seasons.getseries().subscribe(res => {
+    this.seasons.getseries().subscribe(res => {
       this.serieslist = res
     }
       , errorr => {             // If there is an error it will alert an error.
@@ -46,22 +56,22 @@ ngOnInit() {
 
 
 
-del() {
+  del() {
     // this.deluser.id = id;
-if(this.checkpass.password == this.check.Passcheck()){
-    this.seasons.deleteseason(this.delseasonid).subscribe(res => {console.log("deleted"); this.getseasons(); this.showdelform = 0});
-}
-else{
-  alert('wrong password');
-  this.checkpass.password = "";
-this.showdelform = 1;
-}
+    if (this.checkpass.password == this.check.Passcheck()) {
+      this.seasons.deleteseason(this.delseasonid).subscribe(res => { console.log("deleted"); this.getseasons(); this.showdelform = 0 });
+    }
+    else {
+      alert('wrong password');
+      this.checkpass.password = "";
+      this.showdelform = 1;
+    }
   }
 
 
 
-delformshow(id) {
-  this.delseasonid = id;
+  delformshow(id) {
+    this.delseasonid = id;
     if (this.delformcounter % 2 == 0) {
       this.showdelform = 1;
       this.showform = 0;
@@ -75,21 +85,44 @@ delformshow(id) {
 
 
 
-addseasons(){
-if(this.counter%2 == 0){
-  this.showform  = 1;
-}
-  else
-  this.showform = 0;
+  addseasons() {
+    if (this.counter % 2 == 0) {
+      this.showform = 1;
+    }
+    else
+      this.showform = 0;
 
 
-this.counter ++;
-}
-addnewseasons(dd){
-  this.addseason.series_id = dd;
-  console.log(dd)
-this.seasons.postseason(this.addseason).subscribe(res=>{this.result = res; this.getseasons(); this.showform = 0})
+    this.counter++;
+  }
+  addnewseasons(dd) {
+    this.addseason.series_id = dd;
+    console.log(dd)
+    this.seasons.postseason(this.addseason).subscribe(res => { this.result = res; this.getseasons(); this.showform = 0 })
 
 
-}
+  }
+
+  update(id) {
+    this.seasonid = id;
+    if (this.updateformcounter % 2 == 0) {
+      this.showupdateform = 1;
+      this.showform = 0;
+    }
+    else
+      this.showdelform = 0;
+
+
+    this.updateformcounter++;
+  }
+
+
+  updateseasons(dd) {
+
+    this.updateseasonform.season_id = this.seasonid;
+    this.updateseasonform.series_id = dd;
+    console.log(this.updateseasonform)
+    this.seasons.updateseason(this.updateseasonform).subscribe(res => { this.result = res; this.getseasons(); this.showupdateform = 0; });
+    this.showupdateform = 0;
+  }
 }

@@ -17,10 +17,10 @@
   font-size: 20px;
   padding-bottom: 70px;
   padding-top: 70px;
-  background: rgba(0, 0, 0, 0.0);
+  background: transparent;
   
 }
-
+/*
 .container:nth-child(3n+1) {
   
   background: rgba(0, 0, 0, 0);
@@ -32,7 +32,7 @@
 
 .container:nth-child(3n+3) {
  background: rgba(0, 0, 0, 0);
-}
+}*/
 
 
 ::-webkit-scrollbar {
@@ -47,3 +47,47 @@
   -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
   opacity: 0.5
 }
+
+
+
+
+
+
+
+
+
+
+
+/*.section {        
+    position:relative;
+    z-index:1;
+    height:500px;
+    width:100%;
+    background-attachment:fixed;    /* this keeps the background in place */
+    /*background-size:100% 100%;
+    background-repeat:no-repeat;
+}*/
+/*.content {
+    position:relative;
+    z-index:2;
+    background-color:#fff;
+    border:2px solid #666;    
+    height:50%;    /* this height difference allows the bg to show through */    
+/*}*/
+/*.section#s1 {
+    background-image: url({{url1}});   
+}*/
+/*.section#s2 {
+    background-image: url(http://farm5.staticflickr.com/4135/4820238049_8e830ec494_b.jpg);
+}*/
+/*.section#s3 {    
+    background-image: url(../back.jpg);
+}
+.section#s4 {    
+    background-image: url(http://farm9.staticflickr.com/8109/8623081923_9cffafc4a7_h.jpg);
+}
+.section#s5 {    
+    background-image: url(http://farm4.staticflickr.com/3073/3090985991_8d4b559d29_o.jpg);
+}
+*/
+

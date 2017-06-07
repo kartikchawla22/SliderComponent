@@ -1,12 +1,12 @@
-<br><br>
+
 <div class="col-sm-4">
 </div>
 <div class="container">
   <div class="col-sm-4">
-    <input [style.opacity] = "0.5" type="text" class="form-control input-sm" placeholder="Search" name="search" #Search [(ngModel)]="SearchItem" required>
+    <input type="text" class="form-control input-sm" placeholder="Search" name="search" #Search [(ngModel)]="SearchItem" required>
   </div>
-  <button class="btn btn-danger" routerLinkActive = "active" [routerLink] = "['/searchresults', SearchItem]" [style.opacity] = "0.5" [disabled] = "!Search.valid" >
+  <button class="btn btn-info" routerLinkActive = "active" [routerLink] = "['/searchresults', SearchItem]" [disabled] = "!Search.valid" >
         <span class="glyphicon glyphicon-search"></span>Search
   </button>
 </div>
-<br><br>
+

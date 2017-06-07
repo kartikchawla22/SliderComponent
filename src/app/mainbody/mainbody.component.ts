@@ -16,7 +16,7 @@ role;
   constructor( private LoginLogout : CheckLogin, public _route: Router, public series : RestfullService) { }
 arr = [];
 
-
+url1 = "http://farm4.staticflickr.com/3290/3090990005_1177611ccb_o.jpg";
   ngOnInit() {
 this.series.getseries().subscribe(res => {
       this.arr = res

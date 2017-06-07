@@ -1,4 +1,4 @@
-<div class="navbar navbar-default navbar-static-top" role="navigation" [style.opacity]= "opac" (mouseenter) = "mouseenter()" (mouseleave) = "mouseleave()">
+<div class="navbar navbar-default navbar-static-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -12,11 +12,11 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li class="active">
-          <a routerLinkActive='active' routerLink='/' [style.color] = "'black'">HOME</a>
+        <li>
+          <a routerLinkActive='active' routerLink='/'>HOME</a>
         </li>
         <li><a href="#">about</a></li>
-        <li class="dropdown"  *ngIf = "check(x) | async">
+        <li class="dropdown" *ngIf = "check(x) | async" >
     <a class="dropdown-toggle" data-toggle="dropdown" href = "#" >Dashbord
     <span class="caret"></span></a>
         <!--<li class="dropdown"><a href="#" class="dropdown-toggle">something <b class="caret"></b></a>-->
