@@ -16,20 +16,25 @@ import { ComicsComponent } from './comics/comics.component';
 
 export class Configuration {
     public URLS = {
-        getusers: 'http://192.168.15.148:4000/api/v1/users',
-        getseries: 'http://192.168.15.148:4000/api/v1/series',
-        getseason: 'http://192.168.15.148:4000/api/v1/seasons',
-        getcomics: 'http://192.168.15.148:4000/api/v1/comics',
-        search: 'http://192.168.15.148:4000/api/v1/search/',
-        checkusers: 'http://192.168.15.148:4000/api/v1/Check/',
-        getseasonbyid : 'http://192.168.15.148:4000/api/v1/seasons/',
-        getcomicsbyid : 'http://192.168.15.148:4000/api/v1/comcis/', 
-
+        getusers: 'http://192.168.15.148:4000/api/v2/users',
+        getseries: 'http://192.168.15.148:4000/api/v2/series',
+        getseason: 'http://192.168.15.148:4000/api/v2/seasons',
+        getcomics: 'http://192.168.15.148:4000/api/v2/comics',
+        search: 'http://192.168.15.148:4000/api/v2/search/',
+        checkusers: 'http://192.168.15.148:4000/api/v1/Check',
+        getseasonbyid: 'http://192.168.15.148:4000/api/v2/seasons/',
+        getcomicsbyid: 'http://192.168.15.148:4000/api/v2/comcis/',
+        verifyemail: "http://192.168.15.148:4000/api/v1/verify/email",
+        delusers: 'http://192.168.15.148:4000/api/v2/users',
+        delseries: 'http://192.168.15.148:4000/api/v2/series',
+        delseason: 'http://192.168.15.148:4000/api/v2/seasons',
+        delcomics: 'http://192.168.15.148:4000/api/v2/comics',
+        verify : 'http://192.168.15.148:4000/api/v2/verification/',
 
 
     }
 
-   public roles = {
+    public roles = {
         x: ['SA', 'A', 'U']
     }
 }

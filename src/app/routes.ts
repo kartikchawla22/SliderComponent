@@ -18,7 +18,8 @@ import { AuthserviceService } from './authservice.service';
 import { UpdateseriesComponent } from './updateseries/updateseries.component';
 import { UpdateseasonsComponent } from './updateseasons/updateseasons.component';
 import { UpdatecomicsComponent } from './updatecomics/updatecomics.component';
-import { AdminauthService  } from './adminauth.service'
+import { AdminauthService  } from './adminauth.service';
+import { VerifyemailComponent } from './verifyemail/verifyemail.component';
 
 export const routes = [
   {
@@ -77,5 +78,8 @@ export const routes = [
     component : UpdatecomicsComponent,
     canActivate : [AdminauthService]
   },
-
+{
+  path : 'verifyemail',
+  component : VerifyemailComponent
+}
 ]

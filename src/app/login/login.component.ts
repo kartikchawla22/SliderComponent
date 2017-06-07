@@ -28,7 +28,7 @@ this.rest.checkusers(this.data).subscribe(res => {
      // console.log(this.result + "this is result");
 checkrole(){
   if(this.result.role){
-    var key = btoa(btoa(this.data.email) + "??" + btoa(this.data.password)  + "??" + btoa(this.result.role))  ; 
+    var key = btoa(btoa(this.data.email) + "??" + btoa(this.data.password)  + "??" + btoa(this.result.role) + "??" + btoa(this.result.token) )  ; 
   document.cookie = "SessionId" + "=" + key;
     this._router.navigate(['/']);
     console.log(key);

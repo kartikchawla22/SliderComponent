@@ -3,11 +3,12 @@ import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import { Configuration } from './config';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-
+import { CheckLogin  } from './cookie'
 @Injectable()
 export class RestfullService {
+   public random: String;
 
-  constructor(private httpService: Http, public Url: Configuration) { }
+  constructor(private httpService: Http, public Url: Configuration, public tokencheck : CheckLogin) { }
 
   getusers(): Observable<any> {
     return this.httpService.get(this.Url.URLS.getusers).map(data => data = data.json());
@@ -49,46 +50,50 @@ return this.httpService.get(this.Url.URLS.getcomicsbyid + id).map(data=>data = d
 
 deleteuser(id) : Observable<any>{
   console.log(id , "id del");
-return this.httpService.delete(this.Url.URLS.getusers + '/' +  id).map((res : Response) => res.json());
+return this.httpService.delete(this.Url.URLS.delusers + '/' +  id).map((res : Response) => res.json());
 }
 
 deleteseason(id) : Observable<any>{
-return this.httpService.delete(this.Url.URLS.getseason + '/' +  id).map((res : Response) => res.json());
+return this.httpService.delete(this.Url.URLS.delseason + '/' +  id).map((res : Response) => res.json());
 }
 deleteseries(id) : Observable<any>{
   console.log(id , "serires id")
-return this.httpService.delete(this.Url.URLS.getseries + '/' +  id).map((res : Response) => res.json());
+return this.httpService.delete(this.Url.URLS.delseries + '/' +  id).map((res : Response) => res.json());
 }
 deletecomics(id) : Observable<any>{
-return this.httpService.delete(this.Url.URLS.getcomics + '/' +  id).map((res : Response) => res.json());
+return this.httpService.delete(this.Url.URLS.delcomics + '/' +  id).map((res : Response) => res.json());
 }
 
 
 postusers(form) : Observable<any>{
-   let headers = new Headers({ 'Content-Type': 'application/json' });
+  let token = this.tokencheck.token(); 
+   let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization' : 'bearer ' + token });
     let options = new RequestOptions({ headers: headers });
-  return this.httpService.post(this.Url.URLS.getusers, form, headers).map((res:Response) => res.json());
+  return this.httpService.post(this.Url.URLS.verifyemail, form, options).map((res:Response) => res.json());
 }
 
 
 postcomics(form) : Observable<any>{
-   let headers = new Headers({ 'Content-Type': 'application/json' });
+   let token = this.tokencheck.token(); 
+   let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization' : 'bearer ' + token });
     let options = new RequestOptions({ headers: headers });
-  return this.httpService.post(this.Url.URLS.getcomics, form, headers).map((res:Response) => res.json());
+  return this.httpService.post(this.Url.URLS.getcomics, form, options).map((res:Response) => res.json());
 }
 
 
 postseries(form) : Observable<any>{
-   let headers = new Headers({ 'Content-Type': 'application/json' });
+   let token = this.tokencheck.token(); 
+   let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization' : 'bearer ' + token });
     let options = new RequestOptions({ headers: headers });
-  return this.httpService.post(this.Url.URLS.getseries, form, headers).map((res:Response) => res.json());
+  return this.httpService.post(this.Url.URLS.getseries, form, options).map((res:Response) => res.json());
 }
 
 
 postseason(form) : Observable<any>{
-   let headers = new Headers({ 'Content-Type': 'application/json' });
+  let token = this.tokencheck.token(); 
+   let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization' : 'bearer ' + token });
     let options = new RequestOptions({ headers: headers });
-  return this.httpService.post(this.Url.URLS.getseason, form, headers).map((res:Response) => res.json());
+  return this.httpService.post(this.Url.URLS.getseason, form, options).map((res:Response) => res.json());
 }
 
 
@@ -114,6 +119,18 @@ updatecomics(form) : Observable<any>{
    let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
   return this.httpService.put(this.Url.URLS.getcomics, form, headers).map((res:Response) => res.json());
+}
+
+setrandom(ran){
+  console.log(ran);
+  this.random = ran;
+  console.log(this.random);
+  localStorage.setItem("random", ran);
+}
+
+getrandom():String{
+  console.log(this.random);
+  return this.random;
 }
 
 }

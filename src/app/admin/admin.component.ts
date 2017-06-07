@@ -86,7 +86,7 @@ delformshow(id) {
   addnewuser(dd) {
     console.log(dd);
     this.adduserform.role = dd;
-    this.users.postusers(this.adduserform).subscribe(res=>{this.result = res; this.getusers(); this.showform = 0;});
+    this.users.postusers(this.adduserform).subscribe(res=>{this.result = res; this.getusers(); this.showform = 0; console.log(res);this.users.setrandom(res.body.random)  });
     // this.users.getusers().subscribe(res => { this.user = res });
     // console.log(form.valid , " this is dd");
     

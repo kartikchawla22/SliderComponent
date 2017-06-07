@@ -73,5 +73,27 @@ pass;
     }
     return this.pass;
   }
+tokenvalue;
+token(): String{
+ var x = document.cookie.split(';');
+    var cookievalue;
+    for (var i = 0; i < x.length; i++) {
+      if (x[i].split('=')[0].trim() == "SessionId") {
+        cookievalue = x[i].split('=')[1];
+        break;
+      }
+    }
+
+    if (cookievalue == undefined) {
+      this.tokenvalue = "";
+
+    }
+    else {
+      var res = atob(cookievalue).split('??');
+      this.tokenvalue = atob(res[3]);
+    }
+    return this.tokenvalue;
+  }
 }
+
   

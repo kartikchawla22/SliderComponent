@@ -28,7 +28,8 @@ import { SearchresultComponent } from './searchresult/searchresult.component';
 import { UpdateseriesComponent } from './updateseries/updateseries.component';
 import { UpdateseasonsComponent } from './updateseasons/updateseasons.component';
 import { UpdatecomicsComponent } from './updatecomics/updatecomics.component';
-import { AdminauthService  } from './adminauth.service'
+import { AdminauthService  } from './adminauth.service';
+import { VerifyemailComponent } from './verifyemail/verifyemail.component'
 
 
 
@@ -50,7 +51,8 @@ import { AdminauthService  } from './adminauth.service'
     SearchresultComponent,
     UpdateseriesComponent,
     UpdateseasonsComponent,
-    UpdatecomicsComponent
+    UpdatecomicsComponent,
+    VerifyemailComponent
   ],
 
   imports: [
