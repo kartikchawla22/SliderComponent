@@ -30,6 +30,8 @@ import { UpdateseasonsComponent } from './updateseasons/updateseasons.component'
 import { UpdatecomicsComponent } from './updatecomics/updatecomics.component';
 import { AdminauthService  } from './adminauth.service'
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
